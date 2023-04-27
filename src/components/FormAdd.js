@@ -7,7 +7,7 @@ export default function FormAdd(props) {
             props.addlist(text)
             setText("")
         }}>
-            <input type="text"
+            <input  type="text"
                 placeholder="Enter your name"
                 value={text} onChange={(e) => { setText(e.target.value) }} />
         </form>

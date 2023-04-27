@@ -15,7 +15,7 @@ margin: 250px 650px;
 
 padding: 50px;
 font-size: 20px;
-border: 3px solid #a7dbd8;
+
 }
 .studentList .student{
     color: #028f76;
@@ -38,5 +38,20 @@ border: 3px solid #a7dbd8;
     padding: 20px 200px;
     background: #f3ffcf;
     border: none;
-    color: #f67280;
+    color: blue;
+    font-size: large;
+    border: none;
+}
+.studentList .student span.complete{
+    text-decoration: line-through;
+   
+}
+.edit{
+    color: #028f76;
+    width: 100%;
+    padding: 20px 20px;
+   border: none;
+    display: flex;
+    justify-content: flex-start;
+
 }
