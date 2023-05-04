@@ -3,9 +3,24 @@ import Student from "./Student";
 import FormAdd from "./FormAdd";
 import { v4 as uuidv4 } from 'uuid';
 import FormEdit from "./FormEdit";
-
+import Fotter from "./Fotter";
+const getList=(stuList,flag)=>{
+    if(flag == "fillAll" ){
+        return stuList ;
+    }
+    else if(flag=="fillNoChecked"){
+        return stuList.filter((item)=>!item.isComplete);
+    }
+    else if(flag=="fillChecked"){
+        return stuList.filter((item)=>item.isComplete);
+    }
+    else {
+        return stuList
+    }
+}
 export default function StudentList() {
-
+    const [editId,setEditId]=useState("")
+    const [flag,setFlag]=useState("filterAll")
     const [list, Setlist] = useState([
         {
             id: 1,
@@ -16,14 +31,14 @@ export default function StudentList() {
         {
             id: 2,
             name: "Nguyễn Hồ Thế Kha",
-            isEdit: false,        },
+            isComplete: false,       },
         {
             id: 3,
             name: "Châu Tấn Thành ",
-            isEdit: false,        }
+              isComplete: false,        }
     ])
     const addlist = (textname) => {
-        Setlist([...list, { id: uuidv4, name: textname, isComplete: false }])
+        Setlist([...list, { id: uuidv4(), name: textname, isComplete: false }])
     }
     const deletelist = (id) => {
         const newlist = list.filter((item) => {
@@ -36,12 +51,10 @@ export default function StudentList() {
             list.map((value) =>
                 value.id === id ? { ...value, name,isEdit:false } : value
             ))
+            setEditId("")
     }
     const toggle_edit = (id) => {
-        Setlist(
-            list.map((value) =>
-                value.id === id ? { ...value, isEdit: !value.isEdit } : value
-            ))
+      setEditId(id)
     }
     const toggle_complete = (id) => {
         Setlist(
@@ -49,24 +62,43 @@ export default function StudentList() {
                 value.id === id ? { ...value, isComplete: !value.isComplete } : value
             ))
     }
+    const fillAll = () => {
+        setFlag("fillAll")
+    }
+    const fillNoChecked= () => {
+        setFlag("fillNoChecked")
+    }
+    const fillChecked= () => {
+        setFlag("fillChecked")
+    }
+    const removeChecked= () =>{
+        const newlist=list.filter((item)=>!item.isComplete)
+        Setlist(newlist)
+    }
     return (
         <div className="studentList">
             <FormAdd addlist={addlist} />
-            {list.map((value, index) => 
-            value.isEdit ? (
-                <FormEdit value={value} editList={editList} key={index} />
-            ):(
+            {getList(list,flag).map((value, index) => 
+           (
                     <Student
                         student={value}
                         deletelist={deletelist}
                         key={index}
                         toggle_edit={toggle_edit}
                         toggle_complete={toggle_complete}
+                        editId={editId}
+                        editList={editList}
                     />
-                )
+                
 
-            
+           )
             )}
+            <Fotter 
+            fillAll={fillAll}
+            fillChecked={fillChecked}
+            fillNoChecked={fillNoChecked}
+            removeChecked={removeChecked}
+            />
         </div>
     )
 }

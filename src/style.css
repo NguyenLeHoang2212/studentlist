@@ -38,14 +38,11 @@ font-size: 20px;
     padding: 20px 200px;
     background: #f3ffcf;
     border: none;
-    color: blue;
+    color: #028f76;
     font-size: large;
     border: none;
 }
-.studentList .student span.complete{
-    text-decoration: line-through;
-   
-}
+
 .edit{
     color: #028f76;
     width: 100%;
@@ -53,5 +50,20 @@ font-size: 20px;
    border: none;
     display: flex;
     justify-content: flex-start;
-
+    background: #fff3db;
+    border: 1px solid green;
+}
+.footer{
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer button{
+border: none;
+padding: 20px;
+border-radius: 20%;
+background: #b8e994;
+color: #fa983a;
+font-size: large;
+cursor: pointer;
 }
