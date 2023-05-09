@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-
+import { BsSearch } from 'react-icons/bs'
 import axios from "axios";
 import { BsTypeH1 } from "react-icons/bs";
 export default function ApiWeather() {
     const [data, setData] = useState(null)
-    const [text, setText] = useState("Hà Nội")
+    const [text, setText] = useState("")
     const [error, setError] = useState("")
     const getData = async () => {
         const APIkey = "e0ddc538b3415427caeb7901218a30dd"
@@ -18,10 +18,11 @@ export default function ApiWeather() {
             })
             .catch((error) => {
                 // handle error
-                if (error.response.status = "404") {
+                if (error.response.status = "404" && text != "") {
                     setError("Invalid City Name")
+                    setData("")
                 }
-               
+
                 console.log(error);
             })
 
@@ -29,9 +30,16 @@ export default function ApiWeather() {
     useEffect(() => {
         getData();
     }, []);
+    const handle_search = (text) => {
+        getData();
+        setText("")
+        setError("")
+    }
     return (
-        <div>
+        <div >
+            <div className="container">
             <input
+                placeholder="Enter Location"
                 type="text"
                 value={text}
                 onChange={(e) => { setText(e.target.value) }}
@@ -44,18 +52,26 @@ export default function ApiWeather() {
                 }
                 }
             />
+            <div className="icon">
+                <BsSearch className="search" onClick={() => handle_search(text)} />
+            </div>
+            </div>
+            
             {error && (<h1>{error}</h1>)}
             {
                 data && (
-                    <>
-                        <h1>Temp {data.main.temp}</h1>
-                        <h1>{data.name}</h1>
-                        <h1>{data.sys.country}</h1>
-                        <h1>{data.weather[0].description}</h1>
+                   <div className="contain">
+                    <h1 className="thanhpho">{data.name}</h1>
+                    <div className="temp" >
+                    <h1 className="nhietdo">Temp {data.main.temp}</h1>
                         <img
                             src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
                         />
-                    </>
+                    </div>
+                        <h1 className="Datnuoc">{data.sys.country}</h1>
+                        <h1 className="thoitiet">{data.weather[0].description}</h1>
+                        
+                   </div>
                 )
             }
         </div>
