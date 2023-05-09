@@ -57,7 +57,7 @@ export default function ApiWeather() {
             </div>
             </div>
             
-            {error && (<h1>{error}</h1>)}
+            {error && (<h1 className="loi">{error}</h1>)}
             {
                 data && (
                    <div className="contain">
