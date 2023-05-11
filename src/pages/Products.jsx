@@ -1,6 +1,7 @@
 import { Link,Outlet } from "react-router-dom";
 import { getProducts } from "./data";
 import { getProductById } from "./data";
+import axios from "axios";
 export default function Products(){
     const data=getProducts()
     return (
