@@ -1,0 +1,20 @@
+p{
+    width: 100px;
+    
+}
+.tittle{
+    display: none;
+    position: absolute;
+}
+.listfim:hover .tittle{
+    display: block;
+    outline: var(--b) solid var(--c);
+  outline-offset: var(--g);
+}
+img{
+    width: 300px;
+}
+.listfim{
+    display: flex;
+    position: relative;
+}
