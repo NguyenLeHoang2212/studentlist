@@ -6,7 +6,7 @@ const Card = (props) => {
   return (
     <div className="card">
       <Link className="listfim"
-      to={`movie/${movie.id}`}
+      to={`/movie/${movie.id}`}
       >
       <img src={`https://image.tmdb.org/t/p/original${movie?movie.poster_path:""}`} />
        <div className="tittle">

@@ -16,7 +16,9 @@ export default function App2() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}>
-        <Route path="movie/:id" element={<MovieDetail />}></Route>
+        <Route path="/movie" element={<MovieList />}>
+        <Route path=":id" element={<MovieDetail/>}></Route>
+        </Route>
         </Route>
        
       </Routes>
