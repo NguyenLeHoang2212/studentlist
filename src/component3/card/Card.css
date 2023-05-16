@@ -10,6 +10,10 @@ p{
     display: block;
     outline: var(--b) solid var(--c);
   outline-offset: var(--g);
+  color: aliceblue;
+    margin-left: 100px;
+    margin-top: 20px;
+    
 }
 img{
     width: 300px;

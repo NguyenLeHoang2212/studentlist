@@ -10,7 +10,7 @@ const MovieList=()=>{
     const {type}=useParams();
    
     const getData=async()=>{
-        const url=`http://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
+        const url=`http://api.themoviedb.org/3/movie/${type?type:"popular"}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
         axios.get(url)
         .then((res) => {
             // handle success
@@ -26,7 +26,7 @@ const MovieList=()=>{
     }
     useEffect(() => {
         getData();
-    }, []);
+    }, [type]);
     
     return(
         <div className="listcard">

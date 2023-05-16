@@ -12,13 +12,13 @@ const Header=()=>{
                 />
                 </Link>
                 <div className="tt">
-                <Link to="/movie/popular" style={{textDecoration:"none"}}>
+                <Link to="/movies/popular" style={{textDecoration:"none"}}>
                 <span>Popular</span>
                 </Link>
-                <Link to="/movie/top_rated" style={{textDecoration:"none"}}>
+                <Link to="/movies/top_rated" style={{textDecoration:"none"}}>
                 <span>Top Rated</span>
                 </Link>
-                <Link to="/movie/upcoming" style={{textDecoration:"none"}}>
+                <Link to="/movies/upcoming" style={{textDecoration:"none"}}>
                 <span>Upcoming</span>
                 </Link>
                 </div>

@@ -8,6 +8,7 @@ import Home from "./page2/home/Home"
 import MovieList from "./component3/movieList/MovieList"
 import Card from "./component3/card/Card"
 import MovieDetail from "./page2/moviedetail/MovieDetail"
+import "./stylefilm.css"
 export default function App2() {
   return (
 
@@ -15,11 +16,11 @@ export default function App2() {
     
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}>
-        <Route path="/movie" element={<MovieList />}>
-        <Route path=":id" element={<MovieDetail/>}></Route>
-        </Route>
-        </Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/movie" element={<MovieList />}></Route>
+        <Route path="/movies/:type" element={<MovieList />}></Route>
+        <Route path="/movie/:id" element={<MovieDetail/>}></Route>
+    
        
       </Routes>
 

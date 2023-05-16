@@ -7,11 +7,12 @@
     width: 100px;
     width: 20%;
     margin-left: 50px;
+    margin-top: 50px;
 }
 span{
     padding: 40px;
     font-size: xx-large;
-    
+    color: whitesmoke;
 }
 .tt{
     width: 80%;
